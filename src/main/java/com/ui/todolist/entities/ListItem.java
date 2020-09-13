@@ -1,22 +1,22 @@
 package com.ui.todolist.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "listitem")
 public class ListItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String text;
+
+    @Column(name = "message")
+    private String message;
 
     public ListItem() {}
 
-    public ListItem(String text) {
-        this.text = text;
+    public ListItem(String message) {
+        this.message = message;
     }
 
     public void setId(long id) {
@@ -27,11 +27,11 @@ public class ListItem {
         return id;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getText() {
-        return text;
+    public String getMessage() {
+        return message;
     }
 }
